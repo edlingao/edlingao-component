@@ -5,13 +5,14 @@ export default class EdsComponent extends HTMLElement{
         super()
         this.styleRules = style
         this.template = template
+        this.insertVariables = insertVariables;
         this.insertAttributes()
         this.render()
     }
 
     insertAttributes(){
         const args = {...this.dataset}
-        this.template = insertVariables({htmlString: this.template, args})
+        this.template = this.insertVariables({htmlString: this.template, args})
     }
 
     render(){
