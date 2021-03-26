@@ -14,7 +14,7 @@ export default ({htmlString, args }) => {
     const regexLookForTags = /<(\S*?)[^>]*>.*?<\/\1>|<.*?\/>/g 
     let newHTML = htmlString, declarations = '';
     for( let key in args ){
-        declarations += `let ${key}=${typeof args[key] == "string" ? `"${args[key]}"` : args[key] };`
+        declarations += `let ${key}=${typeof args[key] == "string" ? `"${args[key]}"` : typeof args[key] == "function" ? `args.${key}`: args[key] };`
     }
     if(newHTML.match(regexVars) != null){
         newHTML.match(regexVars).forEach( variable => {
