@@ -20,8 +20,7 @@ export default class EdsComponent extends HTMLElement{
         const div = document.createElement('div')
         styles.innerText = this.styleRules
         div.innerHTML = this.template
-        this.innerHTML = ''
-        this.appendChild(styles)
-        this.appendChild(div.firstChild)
+        this.innerHTML = this.template
+        this.prepend(styles)
     }
 }
