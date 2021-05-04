@@ -16,7 +16,7 @@ export default ({htmlString, args }) => {
     for( let key in args ){
         declarations += `let ${key}=${ 
             typeof args[key] == "string" ? 
-                `"${args[key]}"` : 
+                `\`${args[key]}\``:
                 typeof args[key] == "function" ? 
                     `args.${key}`: 
                     typeof args[key] == 'object' ?
